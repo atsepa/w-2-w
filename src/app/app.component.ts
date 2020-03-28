@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { StreamingService } from './services/streaming.service';
+import { BrowserService } from './services/browser/browser.service';
+import { StreamingService } from './services/streaming/streaming.service';
 
 @Component({
 	selector: 'app-root',
@@ -7,9 +8,10 @@ import { StreamingService } from './services/streaming.service';
 	styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
-	constructor(private streamingService: StreamingService) {}
+	constructor(private streamingService: StreamingService, private browserService: BrowserService) {}
 
 	handleClick() {
+		this.browserService.browserEvent.emit();
 		this.streamingService.streamingEvent.emit();
 	}
 }
