@@ -10,7 +10,6 @@ export class AppComponent {
 	constructor(private streamingService: StreamingService) {}
 
 	handleClick() {
-		console.log('cliiiick');
 		this.streamingService.streamingEvent.emit();
 	}
 }
