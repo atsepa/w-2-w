@@ -4,7 +4,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 	providedIn: 'root'
 })
 export class BrowserService {
-	browserEvent = new EventEmitter<any>();
+	browserEvent = new EventEmitter();
 	private browserOptions: string[] = [ 'Originals', 'Movie', 'TV Show' ];
 
 	constructor() {}
