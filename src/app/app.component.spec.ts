@@ -22,10 +22,10 @@ describe('AppComponent', () => {
 	// 	expect(app.title).toEqual('w2w');
 	// });
 
-	it('should render title', () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		fixture.detectChanges();
-		const compiled = fixture.nativeElement;
-		expect(compiled.querySelector('.content span').textContent).toContain('w2w app is running!');
-	});
+	// it('should render title', () => {
+	// 	const fixture = TestBed.createComponent(AppComponent);
+	// 	fixture.detectChanges();
+	// 	const compiled = fixture.nativeElement;
+	// 	expect(compiled.querySelector('.content span').textContent).toContain('w2w app is running!');
+	// });
 });
