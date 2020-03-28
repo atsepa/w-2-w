@@ -5,7 +5,7 @@ import {} from 'protractor';
 	providedIn: 'root'
 })
 export class StreamingService {
-	streamingEvent = new EventEmitter<any>();
+	streamingEvent = new EventEmitter();
 	private streamingOptions: string[] = [ 'Netflix', 'Hulu', 'Disney+', 'HBO Now', 'AmazonPrime', 'Crunchyroll' ];
 
 	constructor() {}
