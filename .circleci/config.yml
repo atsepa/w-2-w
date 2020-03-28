@@ -1,0 +1,118 @@
+version: 2.1
+
+defaults: &defaults
+  # working_directory: ~/w2w
+  docker:
+    - image: circleci/node:10-browsers
+
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  install-job:
+    <<: *defaults
+    steps:
+        # Checkout the code from the branch into the working_directory
+        - checkout
+        # Log the current branch
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        # Restore local dependencies from cache
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+        # Install project dependencies
+        - run:
+            name: Install local dependencies
+            command: npm install
+        # Cache local dependencies if they don't exist
+        - save_cache:
+            key: v1-dependencies-{{ checksum "package-lock.json" }}
+            paths:
+                - node_modules
+  lint-job:
+    <<: *defaults
+    steps:
+        # Checkout the code from the branch into the working_directory
+        - checkout
+        # Log the current branch
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        # Restore local dependencies from cache
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+        # Lint the source code
+        - run:
+            name: Linting
+            command: npm run lint
+  test-ut-job:
+    <<: *defaults
+    steps:
+        # Checkout the code from the branch into the working_directory
+        - checkout
+        # Log the current branch
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        # Restore local dependencies from cache
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+        # Test the source code
+        - run:
+            name: Testing
+            command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  test-e2e-job:
+    <<: *defaults
+    steps:
+        # Checkout the code from the branch into the working_directory
+        - checkout
+        # Log the current branch
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        # Restore local dependencies from cache
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+        # End to End test
+        - run:
+            name: End to End Test
+            command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  build-job:
+    <<: *defaults
+    steps:
+        # Checkout the code from the branch into the working_directory
+        - checkout
+        # Log the current branch
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        # Restore local dependencies from cache
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+        # Lint the source code
+        - run:
+            name: Building
+            command: npm run build
+workflows:
+    build-and-test:
+      jobs:
+        - install-job
+        - lint-job:
+            requires:
+              - install-job
+        - test-ut-job:
+            requires:
+              - install-job        
+        - build-job:
+            requires:
+              - install-job
