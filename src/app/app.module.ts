@@ -6,9 +6,10 @@ import { CardComponent } from './components/card/card.component';
 import { StreamingComponent } from './components/streaming/streaming.component';
 import { BrowserComponent } from './components/browser/browser.component';
 import { GenreComponent } from './components/genre/genre.component';
+import { ColumnOptionComponent } from './components/column-option/column-option.component';
 
 @NgModule({
-	declarations: [ AppComponent, CardComponent, StreamingComponent, BrowserComponent, GenreComponent ],
+	declarations: [ AppComponent, CardComponent, StreamingComponent, BrowserComponent, GenreComponent, ColumnOptionComponent ],
 	imports: [ BrowserModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]
