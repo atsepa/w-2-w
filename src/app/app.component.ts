@@ -3,6 +3,7 @@ import { BrowserService } from './services/browser/browser.service';
 import { StreamingService } from './services/streaming/streaming.service';
 import { GenreService } from './services/genre/genre.service';
 import { ColumnOptionService } from './services/column-option/column-option.service';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
 	selector: 'app-root',
@@ -10,6 +11,8 @@ import { ColumnOptionService } from './services/column-option/column-option.serv
 	styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
+	instagram = faInstagram;
+
 	constructor(
 		private genreService: GenreService,
 		private browserService: BrowserService,
