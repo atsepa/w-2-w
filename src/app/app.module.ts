@@ -7,10 +7,11 @@ import { StreamingComponent } from './components/streaming/streaming.component';
 import { BrowserComponent } from './components/browser/browser.component';
 import { GenreComponent } from './components/genre/genre.component';
 import { ColumnOptionComponent } from './components/column-option/column-option.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
 	declarations: [ AppComponent, CardComponent, StreamingComponent, BrowserComponent, GenreComponent, ColumnOptionComponent ],
-	imports: [ BrowserModule ],
+	imports: [ BrowserModule, FontAwesomeModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]
 })
