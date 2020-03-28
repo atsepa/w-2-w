@@ -158,6 +158,18 @@ svg#clouds {
 		right: 120px;
 		transform: rotate(-5deg);
 	}
+
+	footer {
+		margin-top: 8px;
+		display: flex;
+		align-items: center;
+		line-height: 20px;
+	}
+
+	footer a {
+		display: flex;
+		align-items: center;
+	}
 }
 
 @media screen and (max-width: 575px) {
