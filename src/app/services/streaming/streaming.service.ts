@@ -6,20 +6,25 @@ import {} from 'protractor';
 })
 export class StreamingService {
 	streamingEvent = new EventEmitter();
-	private streamingOptions: string[] = [ 'Netflix', 'Hulu', 'Disney+', 'HBO Now', 'AmazonPrime', 'Crunchyroll' ];
-
-	constructor() {}
+	private readonly streamingOptions: string[] = [
+		'Netflix',
+		'Hulu',
+		'Disney+',
+		'HBO Now',
+		'AmazonPrime',
+		'Crunchyroll'
+	];
 
 	getStreamingOptions() {
-		return this.streamingOptions.slice();
-	}
-
-	getStreamingOption(index: number) {
-		return this.streamingOptions[index];
+		return this.streamingOptions;
 	}
 
 	getRandomStreamingOption() {
 		const index = Math.floor(Math.random() * this.streamingOptions.length);
 		return this.getStreamingOption(index);
+	}
+
+	private getStreamingOption(index: number) {
+		return this.streamingOptions[index];
 	}
 }
