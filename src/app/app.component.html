@@ -19,7 +19,7 @@
 <div class="content" role="main">
 
   <!-- Highlight Card -->
-  <div class="card highlight-card card-small" (click)="handleClick()">
+  <div class="card highlight-card card-small" (click)="handleRandomClick()">
 
     <svg id="rocket" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
       <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
@@ -44,10 +44,10 @@
   <p>Here are some links to help you get started:</p>
 
   <div class="card-container">
-    <app-streaming ngClass="card"></app-streaming>
-    <app-browser ngClass="card"></app-browser>
-    <app-genre ngClass="card"></app-genre>
-    <app-column-option ngClass="card"></app-column-option>
+    <app-streaming ngClass="card" (click)="handleStreamClick()" ></app-streaming>
+    <app-browser ngClass="card" (click)="handleBrowserClick()"></app-browser>
+    <app-genre ngClass="card" (click)="handleGenreClick()"></app-genre>
+    <app-column-option ngClass="card" (click)="handleColumnOptionClick()"></app-column-option>
   </div>
 
   <!-- Links -->

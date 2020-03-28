@@ -17,10 +17,26 @@ export class AppComponent {
 		private columnOptionService: ColumnOptionService
 	) {}
 
-	handleClick() {
+	handleRandomClick() {
+		this.handleGenreClick();
+		this.handleStreamClick();
+		this.handleBrowserClick();
+		this.handleColumnOptionClick();
+	}
+
+	handleGenreClick() {
 		this.genreService.genreEvent.emit();
-		this.browserService.browserEvent.emit();
+	}
+
+	handleStreamClick() {
 		this.streamingService.streamingEvent.emit();
+	}
+
+	handleBrowserClick() {
+		this.browserService.browserEvent.emit();
+	}
+
+	handleColumnOptionClick() {
 		this.columnOptionService.columnOptionEvent.emit();
 	}
 }
