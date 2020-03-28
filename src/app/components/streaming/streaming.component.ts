@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StreamingService } from 'src/app/services/streaming.service';
+import { StreamingService } from 'src/app/services/streaming/streaming.service';
 
 @Component({
 	selector: 'app-streaming',
