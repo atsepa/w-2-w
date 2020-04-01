@@ -8,9 +8,18 @@ import { BrowserComponent } from './components/browser/browser.component';
 import { GenreComponent } from './components/genre/genre.component';
 import { ColumnOptionComponent } from './components/column-option/column-option.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ResultComponent } from './components/result/result.component';
 
 @NgModule({
-	declarations: [ AppComponent, CardComponent, StreamingComponent, BrowserComponent, GenreComponent, ColumnOptionComponent ],
+	declarations: [
+		AppComponent,
+		CardComponent,
+		StreamingComponent,
+		BrowserComponent,
+		GenreComponent,
+		ColumnOptionComponent,
+		ResultComponent
+	],
 	imports: [ BrowserModule, FontAwesomeModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]

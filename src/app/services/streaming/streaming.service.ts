@@ -6,6 +6,7 @@ import {} from 'protractor';
 })
 export class StreamingService {
 	streamingEvent = new EventEmitter();
+	private streamingOption: string;
 	private readonly streamingOptions: string[] = [
 		'Netflix',
 		'Hulu',
@@ -15,16 +16,21 @@ export class StreamingService {
 		'Crunchyroll'
 	];
 
-	getStreamingOptions() {
+	getStreaming(): string {
+		return this.streamingOption;
+	}
+
+	getStreamingOptions(): string[] {
 		return this.streamingOptions;
 	}
 
-	getRandomStreamingOption() {
+	getRandomStreamingOption(): string {
 		const index = Math.floor(Math.random() * this.streamingOptions.length);
 		return this.getStreamingOption(index);
 	}
 
-	private getStreamingOption(index: number) {
-		return this.streamingOptions[index];
+	private getStreamingOption(index: number): string {
+		this.streamingOption = this.streamingOptions[index];
+		return this.getStreaming();
 	}
 }

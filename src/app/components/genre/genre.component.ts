@@ -8,9 +8,10 @@ import { GenreService } from 'src/app/services/genre/genre.service';
 })
 export class GenreComponent implements OnInit {
 	result: string;
+	title: string = 'Genre';
 
 	constructor(private genreService: GenreService) {
-		this.result = 'GENDER';
+		this.result = '--';
 	}
 
 	ngOnInit(): void {

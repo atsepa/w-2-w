@@ -8,9 +8,10 @@ import { StreamingService } from 'src/app/services/streaming/streaming.service';
 })
 export class StreamingComponent implements OnInit {
 	result: string;
+	title: string = 'Streaming Service';
 
 	constructor(private streamingService: StreamingService) {
-		this.result = 'STREAMING';
+		this.result = '--';
 	}
 
 	ngOnInit(): void {
