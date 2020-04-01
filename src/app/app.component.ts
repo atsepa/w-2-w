@@ -12,6 +12,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 })
 export class AppComponent {
 	instagram = faInstagram;
+	toggle: boolean = false;
 
 	constructor(
 		private genreService: GenreService,
@@ -41,5 +42,9 @@ export class AppComponent {
 
 	handleColumnOptionClick() {
 		this.columnOptionService.columnOptionEvent.emit();
+	}
+
+	handleToggleMenu() {
+		this.toggle = !this.toggle;
 	}
 }

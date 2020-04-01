@@ -26,6 +26,6 @@ export class ColumnOptionService {
 		const options = Array.from(Array(this.columnOptionLimit), (_, i) => i + 1);
 		const index = Math.floor(Math.random() * options.length);
 		this.columnOption = options[index];
-		return `${this.getColumnOption()} option`;
+		return `option ${this.getColumnOption()}`;
 	}
 }
