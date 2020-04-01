@@ -1,0 +1,9 @@
+.result-component {
+	display: grid;
+	grid-template-columns: 1fr;
+	padding-top: 10px;
+
+	p {
+		text-align: center;
+	}
+}

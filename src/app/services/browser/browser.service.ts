@@ -5,7 +5,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class BrowserService {
 	browserEvent = new EventEmitter();
+	private browser: string;
 	private readonly browserOptions: string[] = [ 'Originals', 'Movie', 'TV Show' ];
+
+	getBrowser(): string {
+		return this.browser;
+	}
 
 	getRandomBrowserOption(): string {
 		const index = Math.floor(Math.random() * this.browserOptions.length);
@@ -14,6 +19,7 @@ export class BrowserService {
 	}
 
 	private getBrowserOption(index: number): string {
-		return this.browserOptions[index];
+		this.browser = this.browserOptions[index];
+		return this.getBrowser();
 	}
 }

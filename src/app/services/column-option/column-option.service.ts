@@ -5,11 +5,14 @@ import { Injectable, EventEmitter } from '@angular/core';
 	providedIn: 'root'
 })
 export class ColumnOptionService {
+	private columnOption: number;
 	private columnOptionLimit = 10;
 
 	columnOptionEvent = new EventEmitter();
 
-	constructor() {}
+	getColumnOption(): number {
+		return this.columnOption;
+	}
 
 	getColumnOptionLimit(): number {
 		return this.columnOptionLimit;
@@ -22,6 +25,7 @@ export class ColumnOptionService {
 	getRandomColumnOption(): string {
 		const options = Array.from(Array(this.columnOptionLimit), (_, i) => i + 1);
 		const index = Math.floor(Math.random() * options.length);
-		return `${options[index]} option`;
+		this.columnOption = options[index];
+		return `${this.getColumnOption()} option`;
 	}
 }
