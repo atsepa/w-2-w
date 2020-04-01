@@ -5,6 +5,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class GenreService {
 	genreEvent = new EventEmitter();
+	private genre: string;
 	private readonly genreOptions: string[] = [
 		'Action',
 		'Adventure',
@@ -24,6 +25,10 @@ export class GenreService {
 		'Animated'
 	];
 
+	getGenre(): string {
+		return this.genre;
+	}
+
 	getGenreOptions(): string[] {
 		return this.genreOptions;
 	}
@@ -34,6 +39,7 @@ export class GenreService {
 	}
 
 	private getGenreOption(index: number): string {
-		return this.genreOptions[index];
+		this.genre = this.genreOptions[index];
+		return this.getGenre();
 	}
 }

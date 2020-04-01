@@ -8,9 +8,10 @@ import { BrowserService } from 'src/app/services/browser/browser.service';
 })
 export class BrowserComponent implements OnInit {
 	result: string;
+	title: string = 'Browser';
 
 	constructor(private browserService: BrowserService) {
-		this.result = 'BROWSER';
+		this.result = '--';
 	}
 
 	ngOnInit(): void {

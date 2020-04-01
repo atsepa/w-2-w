@@ -8,9 +8,10 @@ import { ColumnOptionService } from 'src/app/services/column-option/column-optio
 })
 export class ColumnOptionComponent implements OnInit {
 	result: string;
+	title: string = 'Column Option';
 
 	constructor(private columnOptionService: ColumnOptionService) {
-		this.result = 'COLUMN';
+		this.result = '--';
 	}
 
 	ngOnInit(): void {
