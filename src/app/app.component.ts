@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { BrowserService } from './services/browser/browser.service';
 import { StreamingService } from './services/streaming/streaming.service';
 import { GenreService } from './services/genre/genre.service';
@@ -12,7 +12,10 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 })
 export class AppComponent {
 	instagram = faInstagram;
-	toggle: boolean = false;
+	toggle: boolean = true;
+	genre: boolean = true;
+	browser: boolean = true;
+	streaming: boolean = true;
 
 	constructor(
 		private genreService: GenreService,
@@ -46,5 +49,17 @@ export class AppComponent {
 
 	handleToggleMenu() {
 		this.toggle = !this.toggle;
+	}
+
+	handleStreamingOptionMenu() {
+		this.streaming = !this.streaming;
+	}
+
+	handleBrowserOptionMenu() {
+		this.browser = !this.browser;
+	}
+
+	handleGenreOptionMenu() {
+		this.genre = !this.genre;
 	}
 }
